@@ -1,5 +1,15 @@
 # Projekt: Integration historischer Kriminalitätsstatistiken (1984-2024)
 
+## Worum geht es?
+
+Dieses Projekt integriert drei unabhaengige Datenquellen zur Kriminalitaet in Deutschland zu einem einheitlichen Master-Datensatz:
+* **Polizeiliche Kriminalstatistik (PKS)** des BKA - Tatverdaechtige nach Delikt und Nationalitaet (1987-2024)
+* **Strafverfolgungsstatistik (Justiz)** des Statistischen Bundesamtes - rechtskraeftig Verurteilte (1984-2024)
+* **Bevoelkerungsfortschreibung** des Statistischen Bundesamtes - Einwohnerzahlen nach Nationalitaet (1984-2024)
+
+Ziel ist ein Vergleich der Kriminalitaetsraten (pro 100.000 Einwohner) zwischen Polizei-Ermittlungen und Justiz-Verurteilungen, aufgeschluesselt nach Nationalitaet (Deutsch/Nichtdeutsch). Die zentrale Frage: Werden Nichtdeutsche auf Polizeiebene staerker erfasst als sie spaeter tatsaechlich verurteilt werden?
+
+Das Projekt entstand im Rahmen des Moduls **Informationsintegration** (Master Informatik) und deckt die komplette Data-Integration-Pipeline ab: Extraction, Schema Mapping, Identity Resolution, Quality Assessment und Data Fusion.
 
 ## Phase 1: Data Collection & Extraction 
 
