@@ -1,8 +1,5 @@
 # Projekt: Integration historischer Kriminalitätsstatistiken (1984-2024)
 
-## Rahmenbedingungen
-Dieses Projekt trägt zu 50 % der Abschlussnote bei. Die Prüfung erfolgt mündlich und dauert 30 Minuten , aufgeteilt in 10-15 Minuten Projektpräsentation  und 15-20 Minuten Fragen/Diskussion.
-
 
 ## Phase 1: Data Collection & Extraction 
 
@@ -44,10 +41,19 @@ Dieses Projekt trägt zu 50 % der Abschlussnote bei. Die Prüfung erfolgt mündl
 * Die Kombination aus Domänenwissen (Regeln) und algorithmischer Ähnlichkeit minimiert den manuellen Aufwand bei hoher Trefferqualität.
 
 
-## Phase 4 & 5: Data Quality Assessment & Final Data Fusion
+## Phase 4: Data Quality Assessment
 
-**Datenqualität:**
-Nach der Fusion zeigt sich ein strukturierter Master-Datensatz (1.722 Zeilen, 21 Kategorien × 2 Nationalitäten × bis zu 41 Jahre). Typische Lücken und Artefakte:
+Die programmatische Qualitaetspruefung ist in `notebooks/06_data_quality_assessment.ipynb` dokumentiert. Das Notebook prueft:
+* Vollstaendigkeit aller Quelldatensaetze (fehlende Werte, Duplikate, Wertebereiche)
+* Coverage der Identity Resolution (wie viele PKS-Delikte wurden erfolgreich zugeordnet)
+* Zeitreihen-Abdeckung als Heatmap (PKS vs. Justiz pro Kategorie und Jahr)
+* Strukturbruch Wiedervereinigung (Bevoelkerungssprung um 1990)
+* Deskriptive Statistik des Master-Datensatzes
+
+## Phase 5: Final Data Fusion
+
+**Datenqualitaet (Zusammenfassung):**
+Nach der Fusion zeigt sich ein strukturierter Master-Datensatz (1.722 Zeilen, 21 Kategorien x 2 Nationalitaeten x bis zu 41 Jahre). Typische Luecken und Artefakte:
 1. **Fehlende Werte:** PKS-Daten liegen erst ab 1987 vor. Die Jahre 1984-1986 enthalten `0` bei den Tatverdächtigen. Diese Nullen wurden bewusst beibehalten, um die Zeitreihe vollständig abzubilden.
 2. **Datenartefakte:** Header-Reste (z.B. `Jahr=3`) in der PKS wurden per Filter (`jahr > 1900`) bereinigt.
 3. **Wiedervereinigungs-Bruch:** Bevölkerungsdaten und Fallzahlen springen Anfang der 90er massiv (von ~61 Mio. auf >80 Mio. Einwohner). Vor 1991 nur Westdeutschland, danach Gesamtdeutschland.
